@@ -1,9 +1,10 @@
-// const path = require('path')
-// 
+//validation, if any of the fields are missing, redirect back to the form
 
+module.exports = (req, res, next) => {
+    if (//!req.files.image ||
+         !req.body.username || !req.body.title   || !req.body.description || !req.body.content) {
+        return res.redirect('/posts/new')
+    }
 
-
-
-
-
-// module.exports = Post;
+    next()
+}
